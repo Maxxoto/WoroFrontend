@@ -23,7 +23,7 @@ class Header extends Component {
             to="#"
             className="btn waves-effect waves-light #2196f3 blue"
           >
-            Credits : <span> 0 </span>
+            Credits : <span> {this.props.auth.credits} </span>
           </Link>,
           <a
             key="3"
