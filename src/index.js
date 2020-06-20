@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import axios from "axios";
+
 // import * as serviceWorker from './serviceWorker';
 
 //Materialize css import
@@ -12,6 +14,8 @@ import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers";
 //Redux thunk import
 import reduxThunk from "redux-thunk";
+
+window.axios = axios;
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
