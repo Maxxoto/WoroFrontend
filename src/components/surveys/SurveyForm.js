@@ -3,14 +3,10 @@ import { reduxForm, Field } from "redux-form";
 import SurveyField from "./SurveyField";
 import { Link } from "react-router-dom";
 import validateEmails from "../../utils/validateEmails";
+import FIELDS from "./formFields";
 //LODASH
 // import _ from "lodash";
-const FIELDS = [
-  { label: "Survey Title", name: "title" },
-  { label: "Subject Line", name: "subject" },
-  { label: "Email Body", name: "body" },
-  { label: "Recipients List", name: "emails" },
-];
+
 class SurveyForm extends Component {
   renderField() {
     //  Gak perlu lodash CRA terbaru sudah ada lodash
@@ -29,12 +25,10 @@ class SurveyForm extends Component {
   render() {
     return (
       <div>
-        <h1 align="center" className="grey-text">
+        <h2 align="center" className="grey-text">
           Survey Form
-        </h1>
-        <form
-          onSubmit={this.props.handleSubmit((values) => console.log(values))}
-        >
+        </h2>
+        <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderField()}
           <Link to="/surveys" className="red btn-flat white-text">
             Cancel
@@ -57,10 +51,11 @@ function validate(values) {
       errors[name] = "You must provide a value of " + name;
     }
   });
-  errors.emails = validateEmails(values.emails || "");
+  errors.recipients = validateEmails(values.recipients || "");
   return errors;
 }
 export default reduxForm({
   validate,
   form: "surveyForm",
+  destroyOnUnmount: false,
 })(SurveyForm);
