@@ -1,19 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import axios from "axios";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import axios from 'axios';
 
 // import * as serviceWorker from './serviceWorker';
 
-//Materialize css import
-import "materialize-css/dist/css/materialize.min.css";
-//Redux import
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import reducers from "./reducers";
-//Redux thunk import
-import reduxThunk from "redux-thunk";
+// Materialize css import
+import 'materialize-css/dist/css/materialize.min.css';
+// Redux import
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+// Redux thunk import
+import reduxThunk from 'redux-thunk';
+import reducers from './reducers';
 
 window.axios = axios;
 
@@ -25,7 +25,7 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

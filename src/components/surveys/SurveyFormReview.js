@@ -1,14 +1,15 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-import { connect } from "react-redux";
-import * as actions from "../../actions";
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
-import FIELDS from "./formFields";
+import FIELDS from './formFields';
 
 const SurveyFormReview = ({ onCancel, formValues, submitSurvey, history }) => {
   const renderField = () => {
     //  Gak perlu lodash CRA terbaru sudah ada lodash
+
     return FIELDS.map(({ label, name }) => {
       return (
         <div key={name}>
