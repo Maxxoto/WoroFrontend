@@ -9,6 +9,7 @@ class Header extends Component {
   componentDidUpdate(prevState) {
     if (prevState.auth !== this.props.auth) {
       console.log('Already login');
+      this.conditionalRender();
     }
   }
 
