@@ -29,15 +29,12 @@ $ yarn start
 
 If you have questions, feature requests or a bug you want to report, please click [here](https://github.com/Maxxoto/WoroFrontend/issues) to file an issue.
 
-or
-
 Like my personal project ? Feel free to use for study and buy me a coffee to keep me awake at night :smiley:.
 
 <div>
 <a href="https://www.buymeacoffee.com/nd5r9SV4N" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;"></a>
 
 or
-
 <a href="https://trakteer.id/maxxoto" target="_blank"> Trakteer </a>
 
 </div>
