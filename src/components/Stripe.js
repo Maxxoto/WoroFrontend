@@ -12,7 +12,7 @@ class Stripe extends Component {
         amount={100}
         token={(token) => this.props.handleToken(token)}
         stripeKey={
-          process.env.NODE_ENV == 'production'
+          process.env.NODE_ENV === 'production'
             ? process.env.STRIPE_KEY
             : process.env.REACT_APP_STRIPE_KEY
         }

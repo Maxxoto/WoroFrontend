@@ -1,18 +1,34 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
+const BASE_URL = 'https://woro-api.herokuapp.com';
+
 export const fetchUser = () => async (dispatch) => {
-  const res = await axios.get('/api/users/me');
+  const res = await axios.get(
+    process.env.NODE_ENV === 'production'
+      ? `${BASE_URL}/api/users/me`
+      : '/api/users/me'
+  );
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
 export const handleToken = (token) => async (dispatch) => {
-  const res = await axios.post('/api/stripe', token);
+  const res = await axios.post(
+    process.env.NODE_ENV === 'production'
+      ? `${BASE_URL}/api/users/me`
+      : '/api/stripe',
+    token
+  );
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
 export const submitSurvey = (values, history) => async (dispatch) => {
-  const res = await axios.post('/api/surveys', values);
+  const res = await axios.post(
+    process.env.NODE_ENV === 'production'
+      ? `${BASE_URL}/api/users/me`
+      : '/api/surveys',
+    values
+  );
   history.push('/surveys');
   dispatch({ type: FETCH_USER, payload: res.data });
 };
