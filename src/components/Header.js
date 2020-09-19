@@ -12,7 +12,13 @@ class Header extends Component {
         return 'Still logging in ...';
       case false:
         return (
-          <a href="/auth/google">
+          <a
+            href={
+              process.env.NODE_ENV === 'production'
+                ? 'https://woro-api.herokuapp.com/auth/google'
+                : '/auth/google'
+            }
+          >
             <span>Sign in with Google</span>
           </a>
         );
@@ -28,7 +34,11 @@ class Header extends Component {
           </Link>,
           <a
             key="3"
-            href="/api/logout"
+            href={
+              process.env.NODE_ENV === 'production'
+                ? 'https://woro-api.herokuapp.com/auth/google'
+                : '/api/logout'
+            }
             className="btn waves-effect waves-light #ff1744 red accent-3"
           >
             Logout
