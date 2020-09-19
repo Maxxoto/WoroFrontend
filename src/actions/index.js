@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-const BASE_URL = 'http://woro-api.herokuapp.com';
+const BASE_URL = 'https://woro-api.herokuapp.com';
 
 export const fetchUser = () => async (dispatch) => {
   const res = await axios.get(
