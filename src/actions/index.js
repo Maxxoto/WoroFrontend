@@ -4,12 +4,16 @@ import { FETCH_USER } from './types';
 const BASE_URL = 'https://woro-api.herokuapp.com';
 
 export const fetchUser = () => async (dispatch) => {
-  const res = await axios.get(
-    process.env.NODE_ENV === 'production'
-      ? `${BASE_URL}/api/users/me`
-      : '/api/users/me'
-  );
-  dispatch({ type: FETCH_USER, payload: res.data });
+  try {
+    const res = await axios.get(
+      process.env.NODE_ENV === 'production'
+        ? `${BASE_URL}/api/users/me`
+        : '/api/users/me'
+    );
+    dispatch({ type: FETCH_USER, payload: res.data });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const handleToken = (token) => async (dispatch) => {

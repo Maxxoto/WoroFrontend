@@ -20,6 +20,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchUser();
+    console.log('Fetching user.....');
   }
 
   render() {
