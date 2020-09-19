@@ -15,7 +15,7 @@ class Header extends Component {
           <a
             href={
               process.env.NODE_ENV === 'production'
-                ? 'https://woro-api.herokuapp.com/auth/google'
+                ? 'http://woro-api.herokuapp.com/auth/google'
                 : '/auth/google'
             }
           >
@@ -36,7 +36,7 @@ class Header extends Component {
             key="3"
             href={
               process.env.NODE_ENV === 'production'
-                ? 'https://woro-api.herokuapp.com/auth/google'
+                ? 'http://woro-api.herokuapp.com/auth/google'
                 : '/api/logout'
             }
             className="btn waves-effect waves-light #ff1744 red accent-3"
