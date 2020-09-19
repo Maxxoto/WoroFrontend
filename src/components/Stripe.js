@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import StripeCheckout from "react-stripe-checkout";
-import { connect } from "react-redux";
-import * as actions from "../actions";
+import React, { Component } from 'react';
+import StripeCheckout from 'react-stripe-checkout';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class Stripe extends Component {
   render() {
@@ -11,7 +11,11 @@ class Stripe extends Component {
         description="$1 for 1 email Credits"
         amount={100}
         token={(token) => this.props.handleToken(token)}
-        stripeKey={process.env.REACT_APP_STRIPE_KEY}
+        stripeKey={
+          process.env.NODE_ENV == 'production'
+            ? process.env.STRIPE_KEY
+            : process.env.REACT_APP_STRIPE_KEY
+        }
       >
         <button className="btn waves-effect waves-light #ff1744 #2196f3 blue">
           Add Credits
