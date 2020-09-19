@@ -6,6 +6,12 @@ import Stripe from './Stripe';
 import Logo from '../assets/images/logo-brand.png';
 
 class Header extends Component {
+  componentDidUpdate(prevState) {
+    if (prevState.auth !== this.props.auth) {
+      console.log('Already login');
+    }
+  }
+
   conditionalRender() {
     switch (this.props.auth) {
       case null:
