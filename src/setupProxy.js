@@ -5,8 +5,8 @@ module.exports = function (app) {
   app.use(
     ['/api', '/auth/google'],
     createProxyMiddleware({
-      target:
-        process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : '',
+      target: 'http://localhost:5000',
+      changeOrigin: true,
     })
   );
 };
