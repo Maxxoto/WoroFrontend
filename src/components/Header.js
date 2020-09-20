@@ -3,13 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Stripe from './Stripe';
 
-import Logo from '../assets/images/logo-brand.png';
-
 class Header extends Component {
   componentDidUpdate(prevState) {
     if (prevState.auth !== this.props.auth) {
-      console.log('Already login');
-      console.log(this.props.auth)
       this.conditionalRender();
     }
   }
@@ -44,7 +40,7 @@ class Header extends Component {
             key="3"
             href={
               process.env.NODE_ENV === 'production'
-                ? 'https://woro-api.herokuapp.com/auth/google'
+                ? 'https://woro-api.herokuapp.com/api/logout'
                 : '/api/logout'
             }
             className="btn waves-effect waves-light #ff1744 red accent-3"

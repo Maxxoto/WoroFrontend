@@ -5,7 +5,8 @@ module.exports = function (app) {
   app.use(
     ['/api', '/auth/google'],
     createProxyMiddleware({
-      target: 'https://woro-api.herokuapp.com/',
+      target:
+        process.env.NODE_ENV === 'development' ? 'http://localhost:5000' : '',
     })
   );
 };

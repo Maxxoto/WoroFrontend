@@ -10,6 +10,10 @@ export const fetchUser = () => async (dispatch) => {
         ? `${BASE_URL}/api/users/me`
         : '/api/users/me'
     );
+    if (res) {
+      console.log(res);
+    }
+
     dispatch({ type: FETCH_USER, payload: res.data });
   } catch (error) {
     console.log(error);
