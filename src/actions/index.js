@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-const BASE_URL = 'http://woro-api.maxxoto.codes';
+export const BASE_URL = 'https://woro-api.maxxoto.codes';
 
 export const fetchUser = () => async (dispatch) => {
   try {

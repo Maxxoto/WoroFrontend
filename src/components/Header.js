@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Stripe from './Stripe';
 
+import { BASE_URL } from '../actions';
 class Header extends Component {
   componentDidUpdate(prevState) {
     if (prevState.auth !== this.props.auth) {
@@ -19,7 +20,7 @@ class Header extends Component {
           <a
             href={
               process.env.NODE_ENV === 'production'
-                ? 'http://woro-api.maxxoto.codes/auth/google'
+                ? `${BASE_URL}/auth/google`
                 : '/auth/google'
             }
           >
@@ -40,7 +41,7 @@ class Header extends Component {
             key="3"
             href={
               process.env.NODE_ENV === 'production'
-                ? 'http://woro-api.maxxoto.codes/api/logout'
+                ? `${BASE_URL}/api/logout`
                 : '/api/logout'
             }
             className="btn waves-effect waves-light #ff1744 red accent-3"
