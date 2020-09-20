@@ -2,13 +2,20 @@ import axios from 'axios';
 import { FETCH_USER } from './types';
 
 export const BASE_URL = 'https://woro-api.maxxoto.codes';
+const config = {
+  withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
 
 export const fetchUser = () => async (dispatch) => {
   try {
     const res = await axios.get(
       process.env.NODE_ENV === 'production'
         ? `${BASE_URL}/api/users/me`
-        : '/api/users/me'
+        : '/api/users/me',
+      config
     );
     if (res) {
       console.log(res);
@@ -25,7 +32,8 @@ export const handleToken = (token) => async (dispatch) => {
     process.env.NODE_ENV === 'production'
       ? `${BASE_URL}/api/stripe`
       : '/api/stripe',
-    token
+    token,
+    config
   );
   dispatch({ type: FETCH_USER, payload: res.data });
 };
@@ -35,7 +43,8 @@ export const submitSurvey = (values, history) => async (dispatch) => {
     process.env.NODE_ENV === 'production'
       ? `${BASE_URL}/api/surveys`
       : '/api/surveys',
-    values
+    values,
+    config
   );
   history.push('/surveys');
   dispatch({ type: FETCH_USER, payload: res.data });
