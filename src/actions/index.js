@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-export const BASE_URL = 'https://woro-api.maxxoto.codes';
+export const BASE_URL = 'https://woro-api.herokuapp.com';
 const config = {
   withCredentials: true,
   headers: {
